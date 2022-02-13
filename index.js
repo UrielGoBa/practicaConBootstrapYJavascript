@@ -28,8 +28,10 @@ let botonReto = document.querySelector(".empezarReto");
 let aquiEstaBody = document.querySelector(".todo");
 let instrucciones = document.querySelector(".instrucciones");
 let contenidoQueAparece = document.querySelector(".contenidoPrincipal");
+let contenidoFinal = document.querySelector(".puntajeFinal");
 let puntaje = document.getElementById("pts");
 let ptje = 200;
+let prjeFnal = 0;
 
 function aparecerPalabra() {/*Aquí se hace aparecer una palabra random para responder el Quiz*/
     if (list.length > 0) {
@@ -39,11 +41,33 @@ function aparecerPalabra() {/*Aquí se hace aparecer una palabra random para res
         reemplazoTemporal.textContent = palabraRandom;
     };
 };
-function findIndex(pal) {/*Aquí se busca el índice de una palabra ingresada*/
+
+function seAcaboElJuego(){
+    if((list.length < 1)||(Number(puntaje.innerHTML)===0)){
+        contenidoQueAparece.style.display = "none";
+        contenidoFinal.style.display = "block";
+        document.getElementById("ptajeFinal").innerText = prjeFnal;
+        
+    }
+};
+
+function borrarPalabra() {
+    document.getElementById("entradaVerbo").value = "";
+};
+
+function findIndexEsp(pal) {/*Aquí se busca el índice de una palabra ingresada en español*/
     for (let i = 0; i < list.length; i++) {
         let esp = list[i].espanol;
+        if (esp == pal){
+            return i;
+        };
+    };
+};
+
+function findIndexIng(pal) {/*Aquí se busca el índice de una palabra ingresada en inglés*/
+    for (let i = 0; i < list.length; i++) {
         let ing = list[i].ingles;
-        if ((esp == pal) || (ing == pal)) {
+        if (ing == pal) {
             return i;
         };
     };
@@ -60,11 +84,22 @@ function comparacion(a, b) {//Aqui se hace una comparación entre
 function points(upOrDown) {
     if (upOrDown == true) {
         let newPtje = Number(puntaje.innerHTML) + 20;
+        prjeFnal = newPtje;
         puntaje.innerHTML = newPtje;
+        if(newPtje>=200){
+            puntaje.style.color ="green";
+        }else{
+            puntaje.style.color ="red";
+        };
     } else {
         let newPtje = Number(puntaje.innerHTML) - 20;
+        prjeFnal = newPtje;
         puntaje.innerHTML = newPtje;
-
+        if(newPtje>=200){
+            puntaje.style.color ="green";
+        }else{
+            puntaje.style.color ="red";
+        };
     }
 };
 
@@ -80,13 +115,32 @@ aparecerPalabra();
 let botonGris = document.querySelector(".botonGris");
 
 botonGris.addEventListener("click", function (e) {
-    e.preventDefault();
     let verboIngresado = document.getElementById("entradaVerbo").value;
     let pal = document.getElementById("verboRandom").textContent;
-    let resultado = comparacion(findIndex(pal), findIndex(verboIngresado));
-    list.splice(findIndex(pal), 1);
+    let resultado = comparacion(findIndexEsp(pal), findIndexIng(verboIngresado));
+    list.splice(findIndexEsp(pal), 1);
     console.log(resultado);
     console.log(list.length);
     points(resultado);
-    aparecerPalabra()
+    aparecerPalabra();
+    borrarPalabra();
+    seAcaboElJuego();
+});
+
+let eVerbo = document.getElementById("entradaVv");
+
+eVerbo.addEventListener("keypress", function (e) {
+
+    if (e.keyCode === 13) {
+        let verboIngresado = document.getElementById("entradaVerbo").value;
+        let pal = document.getElementById("verboRandom").textContent;
+        let resultado = comparacion(findIndexEsp(pal), findIndexIng(verboIngresado));
+        list.splice(findIndexEsp(pal), 1);
+        console.log(resultado);
+        console.log(list.length);
+        points(resultado);
+        aparecerPalabra()
+        borrarPalabra();
+        seAcaboElJuego();
+    };
 });

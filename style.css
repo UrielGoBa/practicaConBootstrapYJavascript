@@ -14,7 +14,8 @@
     height: 90px; 
     background: linear-gradient(180deg, rgba(111,111,111,1) 0%, rgba(94,94,94,1) 20%, rgba(130,130,130,1) 40%, rgba(170,170,170,1) 60%, rgba(198,198,198,1) 80%, rgba(204,204,204,1) 100%);   
 }
-.contenidoPrincipal{
+.contenidoPrincipal,
+.puntajeFinal{
     display: none;
 }
 

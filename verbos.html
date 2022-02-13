@@ -82,33 +82,54 @@
         <!-----------------------------------continuacion escondida---------------------------------->
         <!------------------------------------------------------------------------------------------>
     </div>
-<div class="contenidoPrincipal">
-    <div class="col-6 offset-3 justify-content-center rounded" style="background-color: #aaa;">
-        <br><br>
-        <div class="palabra text-center display-6">
-            <p class="verboRandom" id="verboRandom">Palabra</p>
+    <div class="contenidoPrincipal">
+        <div><img src="lista.png" class="float-right position-absolute" alt=""></div>
+        <div class="col-6 offset-4 justify-content-end rounded" style="background-color: #aaa;">
             <br><br>
+            <!-- <div><img src="lista.png" class="row" alt=""></div> -->
+            <div class="palabra text-center display-6">
+                <p class="verboRandom" id="verboRandom">Palabra</p>
+                <br><br>
+            </div>
+            <div id="entradaVv" style="text-align: center;">
+                <input id="entradaVerbo" type="text">
+                <br><br>
+            </div>
+            <div class="" style="text-align: center;">
+                <button type="button" class="botonGris btn-secondary text-light bg-secondary"> Check up</button>
+                <br><br>
+            </div>
         </div>
-        <div class="" style="text-align: center;">
-            <input id="entradaVerbo" type="text">
-            <br><br>
-        </div>
-        <div class="" style="text-align: center;">
-            <button type="button" class="botonGris btn-secondary text-light bg-secondary"> Check up</button>
-            <br><br>
-        </div>
+        <div class="espaciado" style="min-height: 120px;">
 
-
+        </div>
+        <div class="puntaje">
+            <p id="pts" class="display-6 d-flex flex-row-reverse p-5"></p>
+        </div>
     </div>
-    <div class="espaciado" style="min-height: 120px;">
+
+    <div class="puntajeFinal">
+        <div class="col-6 offset-3 justify-content-end rounded" style="background-color: #aaa;">
+            <br><br>
+            <div class="palabra text-center display-6">
+                <p class="">Tu Puntaje Final es: </p>
+            </div>
+            <div class="puntaje">
+                <p id="ptajeFinal" class="text-center display-4 p-5"></p>
+            </div>
+            <div class="" style="text-align: center;">
+                <a href="file:///C:/Users/PCquality/Documents/Curso%20Javascript/Quiz%20de%20ingl%C3%A9s%20con%20bootstrap%20y%20JS/verbos.html">
+                    <button type="button" class="btn-secondary text-light bg-secondary">Intentar de nuevo</button>
+                </a>
+                <br><br>
+            </div>
+        </div>
         
+        <div class="espaciado" style="min-height: 120px;">
+        </div>
     </div>
-    <div class="puntaje">
-        <p id="pts" class="display-6 d-flex flex-row-reverse p-5"></p>
+
     </div>
-</div>
-
-
     <!-----------------------------------Aqui van los scripts----------------------------------->
     <!------------------------------------------------------------------------------------------>
     <script type="text/javascript" src="jquery/jquery-3.6.0.min.js"></script>
