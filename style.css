@@ -1,0 +1,20 @@
+/*Estilos Generales*/
+*{
+    font-family: sans-serif;
+}
+.elementos{
+    font-size: 25px;
+}
+.elementos:hover{
+    background-color: #2327d499;
+    border-radius: 5px;
+    box-shadow: 0px 9px 10px 5px rgba(0,0,0,0.2);
+}
+.separador{
+    height: 90px; 
+    background: linear-gradient(180deg, rgba(111,111,111,1) 0%, rgba(94,94,94,1) 20%, rgba(130,130,130,1) 40%, rgba(170,170,170,1) 60%, rgba(198,198,198,1) 80%, rgba(204,204,204,1) 100%);   
+}
+.contenidoPrincipal{
+    display: none;
+}
+
